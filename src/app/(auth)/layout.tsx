@@ -1,9 +1,3 @@
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <div>
-      <header>Header</header>
-      {children}
-      Footer
-    </div>
-  );
+  return <div>{children}</div>;
 }
