@@ -1,13 +1,14 @@
-import React from 'react';
+import Header from '@/components/_organisms/Header';
 
-function layout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <div>
-      <header> Header</header>
+      <Header />
       {children}
-      <footer>footer</footer>
     </div>
   );
 }
-
-export default layout;
