@@ -1,7 +1,12 @@
+import NewArrival from '@/components/_organisms/homeP/NewArrivals';
 import React from 'react';
 
 function page() {
-  return <div>Cart page</div>;
+  return (
+    <div>
+      <NewArrival />
+    </div>
+  );
 }
 
 export default page;

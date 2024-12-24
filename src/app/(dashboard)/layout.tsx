@@ -1,3 +1,4 @@
+import Footer from '@/components/_organisms/Footer';
 import Header from '@/components/_organisms/Header';
 
 export default function RootLayout({
@@ -9,6 +10,7 @@ export default function RootLayout({
     <div>
       <Header />
       {children}
+      <Footer />
     </div>
   );
 }

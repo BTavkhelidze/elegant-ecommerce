@@ -18,17 +18,23 @@ const navLinks: INavLinks[] = [
   { title: 'Contact Us', href: '/contactUs', id: 4 },
 ];
 
-function NavBar() {
+interface ITextStyle {
+  color?: string;
+  activeColor?: string;
+}
+
+function NavBar({ color = '#6c7275', activeColor = 'text-black' }: ITextStyle) {
   const pathName = usePathname();
+
   return (
-    <nav className=' md:flex'>
+    <nav className='md:flex'>
       <ul className='flex flex-col md:flex-row gap-10'>
         {navLinks.map((link) => (
           <li
             key={link.id}
             className={clsx(
-              'font-medium text-[14px] leading-[24px] text-[#6c7275]',
-              { 'text-black': pathName == link.href }
+              'font-medium text-[14px] leading-[24px]',
+              pathName === link.href ? activeColor : `text-[${color}]`
             )}
           >
             <Link href={link.href}>{link.title}</Link>

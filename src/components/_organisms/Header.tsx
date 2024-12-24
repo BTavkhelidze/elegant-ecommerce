@@ -9,7 +9,7 @@ import search from '@/utility/images/svg/search.svg';
 function Header() {
   return (
     <header className=' bg-[#f3f5f7] w-full'>
-      <div className='flex justify-between w-full mx-auto  px-[32px] items-center py-4 md:px-[64px] max-w-[1120px]'>
+      <div className='flex justify-between w-full mx-auto  px-[32px] items-center py-4 md:px-[64px] xl:px-0 max-w-[1120px]'>
         <div className='flex items-center gap-1 justify-center'>
           <div className='md:hidden bg-red-400 w-6 h-6 flex items-center justify-center'></div>
           <h1 className='font-medium text-[16px] leading-[24px]  text-center text-black '>
