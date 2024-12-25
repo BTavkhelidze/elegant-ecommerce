@@ -27,7 +27,7 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
   .dark {
     --background: 222.2 84% 4.9%;
@@ -53,7 +53,7 @@
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
   }
 }
 @layer base {
@@ -62,5 +62,189 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+.el {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  cursor: pointer;
+}
+
+.label {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  height: 100%;
+}
+
+.label p:nth-of-type(2) {
+  position: absolute;
+}
+
+.label p:nth-of-type(2) {
+  opacity: 0;
+}
+
+.shop {
+  display: none;
+}
+
+.burger {
+  width: 22.5px;
+
+  position: relative;
+
+  pointer-events: none;
+}
+
+.burger::after,
+.burger::before {
+  content: '';
+
+  height: 1px;
+
+  width: 100%;
+
+  background-color: black;
+
+  position: relative;
+
+  display: block;
+
+  transition: all 1s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.burger::after {
+  top: -4px;
+}
+
+.burger::before {
+  top: 4px;
+}
+
+.burgerActive::after {
+  transform: rotate(45deg);
+
+  top: -1px;
+}
+
+.burgerActive::before {
+  transform: rotate(-45deg);
+
+  top: 1px;
+}
+
+@media only screen and (min-width: 600px) {
+  .header {
+    padding: 20px;
+  }
+
+  .bar {
+    font-size: 15px;
+  }
+
+  .shop {
+    display: block;
+
+    cursor: pointer;
+  }
+}
+
+.background {
+  background-color: black;
+
+  opacity: 0.5;
+
+  height: 100%;
+
+  width: 100%;
+
+  position: absolute;
+
+  left: 0;
+
+  top: 100%;
+}
+
+/* Nav================================================================== */
+
+.nav {
+  /* overflow: hidden; */
+}
+
+.wrapper {
+  display: flex;
+
+  gap: 50px;
+
+  margin-bottom: 80px;
+}
+
+.container {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+}
+
+@media only screen and (min-width: 1000px) {
+  .wrapper {
+    margin-bottom: 0px;
+
+    justify-content: space-between;
+  }
+}
+
+/* Footer+++++++++++++++++++++++++++++++++++++++ */
+
+.footer {
+  display: flex;
+
+  align-items: flex-end;
+
+  flex-wrap: wrap;
+
+  font-size: 12px;
+
+  text-transform: uppercase;
+
+  margin-top: 40px;
+}
+
+.footer ul {
+  width: 50%;
+
+  margin-top: 10px;
+
+  overflow: hidden;
+
+  list-style-type: none;
+
+  padding: 0;
+}
+
+.footer li span {
+  color: #9f9689;
+}
+
+@media only screen and (min-width: 1000px) {
+  .footer {
+    justify-content: space-between;
+  }
+
+  .footer ul {
+    width: auto;
   }
 }

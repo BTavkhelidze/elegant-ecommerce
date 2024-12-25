@@ -1,11 +1,10 @@
 import React from 'react';
 
-import NavBar from '../_molecules/NavBar';
-
 import facebook from '@/utility/images/svg/facebook.svg';
 import instagram from '@/utility/images/svg/instagram.svg';
 import youtube from '@/utility/images/svg/youtube.svg';
 import Image from 'next/image';
+import NavBar from '../_molecules/navLink/NavBar';
 
 // text-[#6c7275]
 function Footer() {
