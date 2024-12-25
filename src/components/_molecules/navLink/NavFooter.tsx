@@ -12,7 +12,7 @@ export default function NavFooter() {
       opacity: 0,
     },
 
-    enter: (i) => ({
+    enter: (i: number[]) => ({
       y: 0,
 
       opacity: 1,
@@ -20,7 +20,7 @@ export default function NavFooter() {
       transition: { duration: 1, ease: [0.76, 0, 0.24, 1], delay: i[0] },
     }),
 
-    exit: (i) => ({
+    exit: (i: number[]) => ({
       y: '100%',
 
       opacity: 0,

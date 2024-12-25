@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react';
 
 import { motion, AnimatePresence } from 'framer-motion';
 import '../../app/globals.css';
-import Nav from '../_molecules/navLink/BurgerNavBar';
+
 import BurgerNavBar from '../_molecules/navLink/BurgerNavBar';
 import NavBar from '../_molecules/navLink/NavBar';
 
@@ -30,20 +30,6 @@ function Header() {
       opacity: 0,
 
       transition: { duration: 0.35 },
-    },
-  };
-
-  const background = {
-    initial: {
-      height: 0,
-    },
-
-    open: {
-      height: '100vh',
-    },
-
-    closed: {
-      height: 0,
     },
   };
 
@@ -83,7 +69,7 @@ function Header() {
               onClick={() => {
                 setIsActive(!isActive);
               }}
-              className='el md:hidden inline-block'
+              className='el md:hidden inline-block w-[24px] h-[24px]'
             >
               <div
                 className={`${'burger'} ${isActive ? 'burgerActive' : ''}`}
