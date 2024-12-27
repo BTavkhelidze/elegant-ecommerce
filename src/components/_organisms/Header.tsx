@@ -62,7 +62,7 @@ function Header() {
 
   return (
     <header className=' bg-[#f3f5f7] w-full'>
-      <div className='flex justify-between w-full mx-auto  px-[32px] items-center py-4 md:px-[64px] xl:px-0 max-w-[1120px]'>
+      <div className='flex justify-between w-full mx-auto  items-center py-4 px-4 sm:px-6 lg:px-8 xl:px-0 max-w-[1120px]'>
         <div className='flex items-center gap-1 justify-center relative'>
           <div className='flex items-center justify-center relative flex-col'>
             <div

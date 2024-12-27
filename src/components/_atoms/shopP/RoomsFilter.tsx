@@ -1,10 +1,13 @@
-'use client';
 import * as React from 'react';
 import clsx from 'clsx';
 
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
-import { useState } from 'react';
+
+interface RoomsFilterProps {
+  category: string;
+  useCategory: (category: string) => void;
+}
 
 const tags = [
   'All Rooms',
@@ -18,9 +21,7 @@ const tags = [
   'Storage',
 ];
 
-export function RoomsFilter() {
-  const [selected, setSelected] = useState<string>('All Rooms');
-
+export function RoomsFilter({ category, useCategory }: RoomsFilterProps) {
   return (
     <ScrollArea className='h-72 w-48'>
       <div className='py-4'>
@@ -30,11 +31,11 @@ export function RoomsFilter() {
               <div
                 className={clsx(
                   'text-sm cursor-pointer text-left',
-                  selected === tag
+                  category === tag
                     ? 'border-b border-b-[#121212] text-[#121212]'
                     : 'text-[#807e7e]'
                 )}
-                onClick={() => setSelected(tag)}
+                onClick={() => useCategory(tag)}
               >
                 {tag}
               </div>
