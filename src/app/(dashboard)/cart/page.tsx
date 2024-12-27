@@ -1,5 +1,6 @@
 import React from "react";
 import CartProducts from "@/components/_molecules/Cart/CartProducts";
+import CartSummary from "@/components/_molecules/Cart/CartSummary";
 
 function page() {
   return (
@@ -50,6 +51,7 @@ function page() {
         </div>
         <div>
           <CartProducts />
+          <CartSummary />
         </div>
       </div>
     </section>
