@@ -15,6 +15,7 @@ interface IProduct {
   image: string[];
 }
 const Product: React.FC<{ product: IProduct }> = ({ product }) => {
+  const startPrice = product.price / (product.discount / 100);
   return (
     <div className='max-w-[262px]  min-h-[433px] '>
       <div className='relative  min-h-[349px] w-full  flex flex-col justify-between '>
@@ -46,7 +47,7 @@ const Product: React.FC<{ product: IProduct }> = ({ product }) => {
       </div>
       <div className='bg-white'>
         <div className='mt-3'>{product.rating}</div>
-        <p className='font-bold text-[16px] leading-[26px] my-1 text-[#141718]'>
+        <p className='font-bold text-[16px]  leading-[26px] my-1 text-[#141718]'>
           {product.title}
         </p>
         <div className='flex  gap-4'>
@@ -55,7 +56,7 @@ const Product: React.FC<{ product: IProduct }> = ({ product }) => {
           </p>
 
           <span className='text-[14px] leading-[22px] text-[#6c7275] line-through'>
-            ${product.discount}
+            ${startPrice}
           </span>
         </div>
       </div>
