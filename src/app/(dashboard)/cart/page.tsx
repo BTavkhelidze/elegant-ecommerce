@@ -1,10 +1,11 @@
 import React from "react";
+import CartProducts from "@/components/_molecules/Cart/CartProducts";
 
 function page() {
   return (
-    <section className="w-full flex flex-col items-center px-[32px] pt-4 pb-[80px] lg:pt-20">
+    <section className="w-full flex flex-col items-center px-[32px] pb-[80px] lg:pt-20">
       <div className="w-full max-w-[1120px]">
-        <div className="flex items-center gap-1 lg:hidden">
+        <div className="flex items-center gap-1 mt-4 lg:hidden">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="12"
@@ -15,9 +16,9 @@ function page() {
             <path
               d="M7.41577 9.5L4.41577 6.5L7.41577 3.5"
               stroke="#605F5F"
-              stroke-width="0.75"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="0.75"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
           <p className="text-[16px] text-[#605F5F]">back</p>
@@ -46,6 +47,9 @@ function page() {
               <p className="text-[16px] text-[#B1B5C3]">Order Complete</p>
             </div>
           </div>
+        </div>
+        <div>
+          <CartProducts />
         </div>
       </div>
     </section>

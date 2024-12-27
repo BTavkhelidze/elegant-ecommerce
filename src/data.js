@@ -1,3 +1,5 @@
+import { color } from "motion/react";
+
 export const products = [
   {
     id: 1,
@@ -8,6 +10,7 @@ export const products = [
     rating: 5,
     price: 400,
     discount: 50,
+    color: "black",
     image: [
       "./trayTable/first.svg",
       "./trayTable/second.svg",
@@ -24,6 +27,7 @@ export const products = [
     rating: 5,
     price: 400,
     discount: 50,
+    color: "black",
     image: [
       "./trayTable/first.svg",
       "./trayTable/second.svg",
@@ -40,6 +44,7 @@ export const products = [
     rating: 5,
     price: 400,
     discount: 50,
+    color: "black",
     image: [
       "./trayTable/first.svg",
       "./trayTable/second.svg",
@@ -56,6 +61,7 @@ export const products = [
     rating: 5,
     price: 400,
     discount: 50,
+    color: "black",
     image: [
       "./trayTable/first.svg",
       "./trayTable/second.svg",
@@ -72,6 +78,7 @@ export const products = [
     rating: 5,
     price: 400,
     discount: 50,
+    color: "black",
     image: [
       "./trayTable/first.svg",
       "./trayTable/second.svg",
@@ -88,6 +95,7 @@ export const products = [
     rating: 5,
     price: 400,
     discount: 50,
+    color: "black",
     image: [
       "./trayTable/first.svg",
       "./trayTable/second.svg",
