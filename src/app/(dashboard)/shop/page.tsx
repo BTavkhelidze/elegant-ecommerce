@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 import ShopWelcome from '@/utility/images/png/shopImage.jpg';
@@ -8,6 +8,8 @@ import { RoomsFilter } from '@/components/_atoms/shopP/RoomsFilter';
 import { PriceFilter } from '@/components/_atoms/shopP/PriceFilter';
 import cols2 from '@/utility/images/svg/cols2.svg';
 import cols3 from '@/utility/images/svg/cols3.svg';
+import cols1 from '@/utility/images/svg/cols1.svg';
+
 import filter from '@/utility/images/svg/filter.svg';
 
 import { products } from '@/data.js';
@@ -15,10 +17,40 @@ import Product from '@/components/_molecules/product';
 import JoinOurNewsletter from '@/components/_molecules/HomeP/JoinOurNewsletter';
 import Link from 'next/link';
 
+interface IProduct {
+  id: number;
+  title: string;
+  category: string;
+  description: string;
+  rating: number;
+  discount: number;
+  price: number;
+  image: string[];
+}
+
 function Shop() {
-  const [category, setCategory] = useState('All Rooms');
-  const [price, setPrice] = useState('All price');
-  const [grid, setGrid] = useState(3);
+  const [category, setCategory] = useState<string>('All Rooms');
+  const [price, setPrice] = useState<string>('All price');
+  const [grid, setGrid] = useState<'2' | '3'>('3');
+  const [mobGrid, setMobGrid] = useState<'1' | '2'>('2');
+
+  const [error, setError] = useState<string>('');
+
+  const [filterByCategory, setFilterByCategory] = useState<IProduct[]>([]);
+
+  useEffect(() => {
+    const filteredProducts = products.filter((product) => {
+      if (category === 'All Rooms') {
+        return true;
+      }
+      return product.category.toLowerCase() === category.toLowerCase();
+    });
+
+    setFilterByCategory(filteredProducts);
+    if (filteredProducts.length === 0) {
+      setError('No products found');
+    }
+  }, [category]);
 
   return (
     <main className='w-full '>
@@ -71,31 +103,54 @@ function Shop() {
                   src={cols3}
                   alt='sort '
                   className='cursor-pointer hidden md:inline-block'
-                  onClick={() => setGrid(3)}
+                  onClick={() => setGrid('3')}
                 />
                 <Image
                   src={cols2}
                   alt='sort '
-                  className='cursor-pointer'
-                  onClick={() => setGrid(2)}
+                  className='cursor-pointer hidden md:inline-block'
+                  onClick={() => setGrid('2')}
+                />
+                <Image
+                  src={cols2}
+                  alt='sort '
+                  className='cursor-pointer hidden sm:inline-block  md:hidden'
+                  onClick={() => setMobGrid('2')}
+                />
+                <Image
+                  src={cols1}
+                  alt='sort '
+                  className='cursor-pointer md:hidden'
+                  onClick={() => setMobGrid('1')}
                 />
               </div>
             </div>
-            <div className={` grid grid-cols-2 md:grid-cols-${grid} gap-3 `}>
-              {products.map((product) => (
-                <Link
-                  key={product.id}
-                  href={`shop/${product.id}`}
-                  className='cursor-pointer'
-                >
-                  <Product product={product} />
-                </Link>
-              ))}
+            <div
+              className={` grid  sm:grid-cols-${mobGrid} md:grid-cols-${grid} gap-3 `}
+            >
+              {filterByCategory.length > 0 &&
+                filterByCategory.map((product) => (
+                  <Link
+                    key={product.id}
+                    href={`shop/${product.id}`}
+                    className='cursor-pointer'
+                  >
+                    <Product product={product} />
+                  </Link>
+                ))}
             </div>
+            {filterByCategory.length === 0 && (
+              <p className='text-black'>{error}</p>
+            )}
+            {filterByCategory.length > 0 && (
+              <div className='cursor-pointer self-center px-10 py-2 font-medium text-base border rounded-[80px] text-[#141718] border-[#141718]'>
+                See more
+              </div>
+            )}
           </div>
         </section>
       </div>
-      <div className='md:pt-[100px] pt-[80px]'>
+      <div className='md:pt-[100px] pt-[80px] '>
         <JoinOurNewsletter />
       </div>
     </main>
