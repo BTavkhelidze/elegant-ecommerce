@@ -1,17 +1,16 @@
 import React from 'react';
 
-import NavBar from '../_molecules/NavBar';
-
 import facebook from '@/utility/images/svg/facebook.svg';
 import instagram from '@/utility/images/svg/instagram.svg';
 import youtube from '@/utility/images/svg/youtube.svg';
 import Image from 'next/image';
+import NavBar from '../_molecules/navLink/NavBar';
 
 // text-[#6c7275]
 function Footer() {
   return (
     <footer className=' bg-[#141718] w-full pt-20 '>
-      <div className='pb-[50px] flex md:flex-row flex-col text-white justify-between w-full mx-auto  px-[32px] items-center py-4 md:px-[64px] xl:px-0 max-w-[1120px]'>
+      <div className='pb-[50px] flex md:flex-row flex-col text-white justify-between w-full mx-auto  items-center py-4 px-4 sm:px-6 lg:px-8 xl:px-0 max-w-[1120px]'>
         <div className='flex items-center  justify-center gap-8 md:flex-row flex-col'>
           <h1 className='font-medium text-[16px] leading-[24px]  text-center'>
             3legant <span className='text-[#6c7275]'>.</span>
